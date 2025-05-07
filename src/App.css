@@ -1,38 +1,398 @@
-.App {
+:root {
+  --background: #0e0e10;
+  --card-bg: #1e1f22;
+  --text-color: #ffffff;
+  --text-subtle: #bbb;
+  --text-muted: #888;
+  --accent-color: #00b0f4;
+
+  --status-online: #23a55a;
+  --status-idle: #f0b232;
+  --status-dnd: #e03e3e;
+  --status-offline: #747f8d;
+  --status-streaming: #b700ff;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background);
+  color: var(--text-color);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.card-container {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  transform: translateY(-50px);
+}
+
+.profile-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--background);
+}
+
+.status-indicator.online {
+  background-color: var(--status-online);
+}
+
+.status-indicator.idle {
+  background-color: var(--status-idle);
+}
+
+.status-indicator.dnd {
+  background-color: var(--status-dnd);
+}
+
+.status-indicator.offline {
+  background-color: var(--status-offline);
+}
+
+.status-indicator.streaming {
+  background-color: var(--status-streaming);
+}
+
+.user-info h2 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.5rem;
+}
+
+.tag {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.clan-badge {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.clan-badge img {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.activity {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  background: #2a2a2d;
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+  margin-bottom: 0rem;
+  margin-top: 0.8rem;
+}
+
+.activity:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+
+.activity img {
+  width: 68px;
+  height: 68px;
+  border-radius: 0.4rem;
+  object-fit: cover;
+}
+
+.activity strong {
+  font-size: 1rem;
+}
+
+.activity div {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.activity .progress-bar {
+  background: #3e3e42;
+  height: 7px;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.activity .progress {
+  background: linear-gradient(90deg, #1db954, #1ed760);
+  height: 100%;
+  transition: width 0.2s linear;
+}
+
+.activity .time-info {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity .time-info span:first-child {
+  color: #1db954;
+}
+
+.activity .time-info span:last-child {
+  color: var(--text-muted);
+}
+
+.social-links {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--text-color);
+  padding: 1.5rem;
+  padding-top: 0.5rem;
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-links h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.social-links .links {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.75rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.section-divider {
+  margin: 1.5rem 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      rgba(0, 176, 244, 0.5),
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 176, 244, 0.5));
+  border: none;
+}
+
+.tech-stack {
+  padding: 1.5rem;
+  padding-top: 0rem;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tech-stack h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.tech-stack .tech-icons img {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .card-container {
+    max-width: 60vw;
+    padding: 1rem;
+    transform: none;
+  }
+
+  .profile-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-info h2 {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 0.4;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .activity img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .social-links .links {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.6rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 650px) {
+  .card-container {
+    max-width: 75vw;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .profile-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-info h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 0.4;
+  }
+
+  .clan-badge {
+    font-size: 0.8rem;
+  }
+
+  .activity {
+    padding: 0.4rem;
+    padding-left: 0.9rem;
+    gap: 0.7rem;
+  }
+
+  .activity img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .activity strong {
+    font-size: 1.1rem;
+  }
+
+  .activity div {
+    font-size: 1rem;
+  }
+
+  .social-links,
+  .tech-stack {
+    border-radius: 0.5rem;
+    justify-content: space-around;
+    gap: 4rem;
+  }
+
+  .tech-stack h2,
+  .social-links h2 {
+    margin-bottom: 0.6rem;
+    margin-top: 0rem;
+  }
+
+  .tech-stack .tech-icons img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .social-links .links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .social-links a img {
+    width: 100%;
+    min-width: 0;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
   }
 }
