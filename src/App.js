@@ -215,6 +215,16 @@ const App = () => {
             </a>
           </div>
         </div>
+        <footer className="copyright-footer">
+          &copy; {new Date().getFullYear()}{" "}
+          <a
+            href="https://github.com/ItsAlexIK"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ItsAlexIK
+          </a>
+        </footer>
       </div>
     </div>
   );

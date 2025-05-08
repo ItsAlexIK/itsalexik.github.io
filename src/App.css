@@ -40,7 +40,7 @@ html {
   max-width: 500px;
   width: 100%;
   position: relative;
-  transform: translateY(-50px);
+  transform: translateY(-30px);
 }
 
 .profile-card {
@@ -251,6 +251,26 @@ html {
   width: 90%;
   margin: 0 auto;
   display: block;
+}
+
+.copyright-footer {
+  text-align: center;
+  padding-top: 1.5rem;
+  color: #bbb;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.copyright-footer a {
+  color: #00b0f4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.copyright-footer a:hover {
+  color: #0077b6;
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
