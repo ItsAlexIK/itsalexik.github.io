@@ -1,0 +1,131 @@
+.chat-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-content {
+  background: linear-gradient(120deg, rgba(17, 18, 22, 0.98) 0%, rgba(16,18,24,0.97) 60%, rgba(22,24,34,0.93) 100%);
+  color: #fff;
+  border-radius: 1rem;
+  border: 1.5px solid rgba(88,101,242,0.10);
+  box-shadow:
+    0 8px 32px 0 rgba(0,0,0,0.60),
+    0 1.5px 8px 0 rgba(88,101,242,0.07);
+  padding: 0.7rem 1rem 1rem 1rem;
+  max-width: 70vw;
+  width: 410px;
+  position: relative;
+  animation: popIn 0.25s;
+  -webkit-backdrop-filter: blur(12px);
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 2.1rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.close-modal-btn::before {
+  content: "×";
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.close-modal-btn:hover {
+  color: #f55;
+}
+
+@media (max-width: 768px) {
+  .close-modal-btn {
+    display: none;
+  }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.modal-content textarea {
+  resize: none;
+  min-height: 90px;
+  max-height: 200px;
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  background: #23242b;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+
+.modal-content textarea:focus {
+  background: #23263a;
+}
+
+.modal-content button[type="submit"] {
+  background: linear-gradient(90deg, #5865f2 60%, #3ba55d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(88,101,242,0.10);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.modal-content button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.message-sent {
+  background: rgba(59, 165, 93, 0.12);
+  color: #3ba55d;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-weight: 600;
+  font-size: 1.08rem;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 rgba(59,165,93,0.07);
+  letter-spacing: 0.2px;
+  animation: fadeIn 0.3s;
+}

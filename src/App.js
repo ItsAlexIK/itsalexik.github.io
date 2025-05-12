@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { startSnow } from "./visuals/snow";
 import { startStars } from "./visuals/stars";
+import ChatModal from "./components/ChatModal";
 import "./App.css";
 
 const formatElapsed = (milliseconds) => {
@@ -12,6 +13,7 @@ const formatElapsed = (milliseconds) => {
 const App = () => {
   const [presence, setPresence] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     startSnow();
@@ -121,8 +123,10 @@ const App = () => {
               </div>
             )}
           </div>
+          <button className="chat-button" onClick={() => setIsModalOpen(true)}>
+            💬
+          </button>
         </div>
-
         {otherActivities.length > 0 && (
           <div className="activities">
             {otherActivities.map((act, index) => {
@@ -174,7 +178,6 @@ const App = () => {
             })}
           </div>
         )}
-
         <hr className="section-divider" />
         <div className="tech-stack">
           <h2>💻 Tech Stack</h2>
@@ -215,6 +218,7 @@ const App = () => {
             </a>
           </div>
         </div>
+        <ChatModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />{" "}
         <footer className="copyright-footer">
           &copy; {new Date().getFullYear()}{" "}
           <a
