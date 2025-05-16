@@ -56,8 +56,15 @@ const ChatModal = ({ isOpen, onClose }) => {
               setError(false);
             }}
             placeholder="Type your message here..."
+            disabled
           />
           <button type="submit">Send</button>
+
+          {/* Later */}
+          <div className="message-sent" style={{ color: "#f55" }}>
+            Funkcja chwilowo niedostępna.
+          </div>
+
           {sent && <div className="message-sent">Message sent!</div>}
           {error && (
             <div className="message-sent" style={{ color: "#f55" }}>
