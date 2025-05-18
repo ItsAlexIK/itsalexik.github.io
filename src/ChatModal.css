@@ -118,14 +118,30 @@
 }
 
 .message-sent {
-  background: rgba(59, 165, 93, 0.12);
-  color: #3ba55d;
-  border-radius: 8px;
-  padding: 0.7rem 0;
-  font-weight: 600;
-  font-size: 1.08rem;
-  text-align: center;
-  box-shadow: 0 2px 8px 0 rgba(59,165,93,0.07);
-  letter-spacing: 0.2px;
-  animation: fadeIn 0.3s;
+  background: #23272f;
+  color: #43ff7a;
+  border: 1.5px solid #43ff7a;
+  border-radius: 0.5rem;
+  padding: 0.7em 1em;
+  /* margin-top: 1em; */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px 0 rgba(67,255,122,0.07);
+  font-size: 1.05em;
+  gap: 0.5em;
+}
+
+.message-error {
+  background: #2c0e12;
+  color: #ff5a5f;
+  border: 1.5px solid #ff5a5f;
+  border-radius: 0.5rem;
+  padding: 0.7em 1em;
+  /* margin-top: 1em; */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px 0 rgba(255,90,95,0.07);
+  font-size: 1.05em;
 }

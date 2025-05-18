@@ -12,7 +12,7 @@ const ChatModal = ({ isOpen, onClose }) => {
 
     try {
       setError(false);
-      const response = await fetch("http://89.144.32.143:2137/api/alex", {
+      const response = await fetch("https://89.144.32.143/balls.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,19 +56,22 @@ const ChatModal = ({ isOpen, onClose }) => {
               setError(false);
             }}
             placeholder="Type your message here..."
-            disabled
           />
           <button type="submit">Send</button>
-
-          {/* Later */}
-          <div className="message-sent" style={{ color: "#f55" }}>
-            Funkcja chwilowo niedostępna.
-          </div>
-
-          {sent && <div className="message-sent">Message sent!</div>}
+          {sent && (
+            <div className="message-sent">
+              <span role="img" aria-label="sent">
+                ✅
+              </span>
+              Message sent!
+            </div>
+          )}{" "}
           {error && (
-            <div className="message-sent" style={{ color: "#f55" }}>
-              Error sending message!
+            <div className="message-error">
+              <span role="img" aria-label="error" style={{ marginRight: 6 }}>
+                ❌
+              </span>
+              <b>Error sending message!</b>
             </div>
           )}
         </form>
