@@ -142,8 +142,31 @@ const App = () => {
                   : 0;
 
               return (
-                <div className="activity" key={index}>
-                  {act.assets?.large_image && (
+                <div
+                  className={`activity${isSpotify ? " spotify-activity" : ""}`}
+                  key={index}
+                  style={{
+                    position: isSpotify ? "relative" : undefined,
+                    display: isSpotify ? "flex" : undefined,
+                    alignItems: isSpotify ? "center" : undefined,
+                  }}
+                >
+                  {isSpotify && presence.spotify?.album_art_url && (
+                    <img
+                      className="spotify-bg-blur"
+                      src={presence.spotify.album_art_url}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  )}
+                  {isSpotify && presence.spotify?.album_art_url && (
+                    <img
+                      className="spotify-album-art"
+                      src={presence.spotify.album_art_url}
+                      alt="album art"
+                    />
+                  )}
+                  {!isSpotify && act.assets?.large_image && (
                     <img
                       src={
                         act.assets.large_image.startsWith("spotify:")
@@ -153,7 +176,7 @@ const App = () => {
                       alt="activity"
                     />
                   )}
-                  <div>
+                  <div className="activity-content">
                     <strong>{act.name}</strong>
                     <div>{act.details || act.state}</div>
                     {isSpotify && (

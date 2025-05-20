@@ -20,8 +20,14 @@ html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--background);
   color: var(--text-color);
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+  display: none;
 }
 
 .app {
@@ -302,6 +308,33 @@ html {
   text-decoration: underline;
 }
 
+.spotify-activity {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.spotify-bg-blur {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  min-width: 100%;
+  height: 100vh;
+  min-height: 100%;
+  object-fit: cover;
+  filter: blur(32px) brightness(0.5) saturate(1.2);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.spotify-activity > *:not(.spotify-bg-blur) {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 900px) {
   .app {
     padding: 1rem;
@@ -359,9 +392,9 @@ html {
 @media (max-width: 650px) {
   .card-container {
     max-width: 75vw;
-    border-radius: 0;
     box-shadow: none;
     padding: 1rem;
+    border-radius: 10px;
   }
 
   .profile-card {
@@ -395,7 +428,7 @@ html {
   }
 
   .activity {
-    padding: 0.4rem;
+    padding: 0.6rem;
     padding-left: 0.9rem;
     gap: 0.7rem;
   }
