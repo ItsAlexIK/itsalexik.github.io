@@ -12,7 +12,7 @@ const ChatModal = ({ isOpen, onClose }) => {
 
     try {
       setError(false);
-      const response = await fetch("https://89.144.32.143/api/alex.php", {
+      const response = await fetch("https://heartbeetle.com/api/alex.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,10 +23,10 @@ const ChatModal = ({ isOpen, onClose }) => {
       if (response.ok) {
         setMessage("");
         setSent(true);
-        setTimeout(() => setSent(false), 3500);
+        setTimeout(() => setSent(false), 7500);
       } else {
         setError(true);
-        setTimeout(() => setError(false), 4500);
+        setTimeout(() => setError(false), 7500);
       }
     } catch (error) {
       setError(true);
