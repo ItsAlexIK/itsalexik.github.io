@@ -12,7 +12,7 @@ const ChatModal = ({ isOpen, onClose }) => {
 
     try {
       setError(false);
-      const response = await fetch("https://89.144.32.143/balls.php", {
+      const response = await fetch("https://89.144.32.143/api/alex.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
