@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { startSnow } from "./visuals/snow";
 import { startStars } from "./visuals/stars";
 import ChatModal from "./components/ChatModal";
-import "./App.css";
+import "./styles/App.css";
 
 const formatElapsed = (milliseconds) => {
   const minutes = Math.floor(milliseconds / 60000);

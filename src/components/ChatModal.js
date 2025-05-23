@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../ChatModal.css";
+import "../styles/ChatModal.css";
 
 const ChatModal = ({ isOpen, onClose }) => {
   const [message, setMessage] = useState("");
