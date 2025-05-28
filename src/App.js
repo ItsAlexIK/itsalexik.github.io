@@ -113,15 +113,16 @@ const App = () => {
             <h2>{username}</h2>
             <span className="tag">{tag}</span>
 
-            {discord_user.clan?.tag && discord_user.clan?.badge && (
+            {discord_user.primary_guild?.tag && discord_user.primary_guild?.badge && (
               <div className="clan-badge">
                 <img
-                  src={`https://cdn.discordapp.com/clan-badges/${discord_user.clan.identity_guild_id}/${discord_user.clan.badge}.png`}
-                  alt={`[${discord_user.clan.tag}]`}
+                  src={`https://cdn.discordapp.com/clan-badges/${discord_user.primary_guild.identity_guild_id}/${discord_user.primary_guild.badge}.png`}
+                  alt={`[${discord_user.primary_guild.tag}]`}
                 />
-                <span>{discord_user.clan.tag}</span>
+                <span>{discord_user.primary_guild.tag}</span>
               </div>
             )}
+
           </div>
           <button className="chat-button" onClick={() => setIsModalOpen(true)}>
             💬
