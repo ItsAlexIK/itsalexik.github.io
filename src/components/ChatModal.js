@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ChatModal.css";
 
-const ChatModal = ({ isOpen, onClose }) => {
+const ChatModal = ({ isOpen, onClose, disabled = true }) => {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
@@ -51,30 +51,33 @@ const ChatModal = ({ isOpen, onClose }) => {
           <textarea
             value={message}
             onChange={(e) => {
+              if (disabled) return;
               setMessage(e.target.value);
               setSent(false);
               setError(false);
             }}
             placeholder="Type your message here..."
+            disabled={disabled}
           />
-          <button type="submit">Send</button>
-          {sent && (
-            <div className="message-sent">
-              <span role="img" aria-label="sent">
-                ✅
-              </span>
-              Message sent!
+          <button type="submit" disabled={disabled}>Send</button>
+
+          {disabled && (
+            <div className="message-disabled">
+              🚫 This feature is temporarily disabled.
             </div>
-          )}{" "}
-          {error && (
+          )}
+          {sent && !disabled && (
+            <div className="message-sent">
+              ✅ Message sent!
+            </div>
+          )}
+          {error && !disabled && (
             <div className="message-error">
-              <span role="img" aria-label="error" style={{ marginRight: 6 }}>
-                ❌
-              </span>
-              <b>Error sending message!</b>
+              ❌ <b>Error sending message!</b>
             </div>
           )}
         </form>
+
       </div>
     </div>
   );
