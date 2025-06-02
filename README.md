@@ -1,7 +1,7 @@
 # MiniWeb &nbsp;[![pages-build-deployment](https://github.com/ItsAlexIK/MiniPortfolio/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ItsAlexIK/MiniPortfolio/actions/workflows/pages/pages-build-deployment)
 
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-222?logo=github)](https://itsalexik.github.io/MiniPortfolio/)
+[![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-222?logo=github)](https://itsalexik.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
