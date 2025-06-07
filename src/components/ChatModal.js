@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ChatModal.css";
 
-const ChatModal = ({ isOpen, onClose, disabled = true }) => {
+const ChatModal = ({ isOpen, onClose, disabled = false }) => {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
@@ -12,7 +12,7 @@ const ChatModal = ({ isOpen, onClose, disabled = true }) => {
 
     try {
       setError(false);
-      const response = await fetch("https://heartbeetle.com/api/alex.php", {
+      const response = await fetch("https://heartbeetle.com/alex.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,9 @@ const ChatModal = ({ isOpen, onClose, disabled = true }) => {
             placeholder="Type your message here..."
             disabled={disabled}
           />
-          <button type="submit" disabled={disabled}>Send</button>
+          <button type="submit" disabled={disabled}>
+            Send
+          </button>
 
           {disabled && (
             <div className="message-disabled">
@@ -67,9 +69,7 @@ const ChatModal = ({ isOpen, onClose, disabled = true }) => {
             </div>
           )}
           {sent && !disabled && (
-            <div className="message-sent">
-              ✅ Message sent!
-            </div>
+            <div className="message-sent">✅ Message sent!</div>
           )}
           {error && !disabled && (
             <div className="message-error">
@@ -77,7 +77,6 @@ const ChatModal = ({ isOpen, onClose, disabled = true }) => {
             </div>
           )}
         </form>
-
       </div>
     </div>
   );
