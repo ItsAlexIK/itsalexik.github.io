@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ChatModal.css";
 
-const ChatModal = ({ isOpen, onClose, disabled = false }) => {
+const ChatModal = ({ isOpen, onClose, disabled = true }) => {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
